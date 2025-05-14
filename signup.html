@@ -15,12 +15,10 @@
       margin: 0;
       animation: fadeIn 2s ease-in-out;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
     }
-
     .form-container {
       background-color: rgba(0, 0, 0, 0.85);
       padding: 30px;
@@ -30,22 +28,22 @@
       text-align: center;
       width: 300px;
     }
-
-    input, button {
+    input {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
       border-radius: 5px;
       border: none;
     }
-
     button {
       background: gold;
       color: black;
+      border: none;
+      padding: 10px 20px;
       font-weight: bold;
+      border-radius: 5px;
       cursor: pointer;
     }
-
     a {
       display: block;
       margin-top: 10px;
@@ -57,30 +55,28 @@
 <body>
   <div class="form-container">
     <h2>Signup</h2>
-    <input type="text" id="name" placeholder="Your Name" required />
     <input type="email" id="email" placeholder="Email" required />
     <input type="password" id="password" placeholder="Password" required />
     <button onclick="signup()">Signup</button>
     <a href="login.html">Already have an account? Login</a>
   </div>
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script>
-    // Firebase Config
     const firebaseConfig = {
       apiKey: "AIzaSyDkCjQHj7WGnXAOEAFJlYdxvfTemfgkjc0",
       authDomain: "movieflix-51f11.firebaseapp.com",
       projectId: "movieflix-51f11",
-      storageBucket: "movieflix-51f11.firebasestorage.app",
+      storageBucket: "movieflix-51f11.appspot.com",
       messagingSenderId: "209869639305",
       appId: "1:209869639305:web:fdc057b144075c6e65c058",
       measurementId: "G-LP2632P019"
     };
 
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
@@ -90,12 +86,18 @@
 
       auth.createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
-          alert("Signup successful! You can now log in.");
+          //alert("Signup successful! You can now log in.");
           window.location.href = "login.html";
         })
         .catch((error) => {
           alert("Signup failed: " + error.message);
         });
+      Swal.fire({
+  title: 'Success!',
+  text: 'SignUp successful!',
+  icon: 'success',
+  confirmButtonText: 'OK'
+});
     }
   </script>
 </body>
