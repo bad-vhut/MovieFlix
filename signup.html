@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup - CineClassics</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+    body {
+      font-family: 'Special Elite', cursive;
+      
+      background-size: cover;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 30px;
+      border-radius: 10px;
+      border: 2px solid gold;
+      color: gold;
+      box-shadow: 0 0 15px gold;
+      text-align: center;
+      width: 300px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      background: gold;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    a {
+      display: block;
+      margin-top: 10px;
+      color: #ffcc00;
+      text-decoration: none;
+    }
+  
+  body {
+  font-family: 'Special Elite', cursive;
+  background-color: black;
+  color: gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  animation: fadeIn 2s ease-in-out;
+}
+  
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Signup</h2>
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="signup()">Signup</button>
+    <a href="login.html">Already have an account? Login</a>
+  </div>
+
+  <script>
+    function signup() {
+      const user = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value
+      };
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("loginMessage", "Signup Successful!");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
