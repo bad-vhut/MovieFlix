@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Watch Video</title>
+  <link rel="stylesheet" href="assets/stylex.css" />
+</head>
+<body>
+
+  <!-- Header Section with Site Name -->
+  <header>
+    <h1 style="margin: 0; padding: 1rem; color: white;">Movie Flix</h1>
+  </header>
+
+  <div class="player-container">
+    <video id="videoPlayer" controls autoplay></video>
+    <div class="video-actions">
+      <a id="downloadBtn" href="#" download>Download</a>
+      <button id="watchLaterBtn">📌 Watch Later</button>
+    </div>
+    <progress id="downloadProgress" value="0" max="100"></progress>
+  </div>
+
+  <section id="suggestedVideos" class="video-grid"></section>
+  <div id="miniPlayer" class="mini-player hidden">
+    <video id="miniVideo" controls muted></video>
+  </div>
+
+  <script src="assets/watch.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: black;
+  color: #333;
+  transition: 0.3s;
+}
+
+body.dark {
+  background: #121212;
+  color: #eee;
+}
+
+header {
+  display: flex;
+  justify-content: center;   /* এটা হরাইজনটাল সেন্টার করে */
+  align-items: center;       /* এটা ভার্টিকাল সেন্টার করে (উচ্চতা থাকলে) */
+  height: 80px;              /* ঐচ্ছিক: হেডারের উচ্চতা */
+  background: black;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filters, .quick-links {
+  text-align: center;
+  margin: 1rem;
+}
+
+.filter-btn {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #ddd;
+  cursor: pointer;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.video-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.video-card:hover {
+  transform: scale(1.05);
+}
+.video-card img {
+  width: 100%;
+  display: block;
+}
+
+.player-container video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: black;
+  border-radius: 8px;
+}
+
+.video-actions {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+progress {
+  width: 100%;
+  height: 10px;
+}
+
+.mini-player {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 300px;
+  aspect-ratio: 16 / 9; /* ✅ ল্যান্ডস্কেপ রেশিও */
+  background: #000;
+  z-index: 999;
+  border: 2px solid #444;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mini-player video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* ✅ ভিডিও কেটে না গিয়ে ফ্রেমে সুন্দর ফিট হবে */
+  background: black;
+}
+
+.mini-player.hidden {
+  display: none;
+}
+
+
+
+#downloadBtn {
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 242, 254, 0.4);
+  text-decoration: none;
+  display: inline-block;
+}
+
+#downloadBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 242, 254, 0.6);
+}
+
+#downloadBtn:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 8px rgba(0, 242, 254, 0.5);
+}
+
+
+#watchLaterBtn {
+  background: linear-gradient(to right, #43e97b, #38f9d7);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(56, 249, 215, 0.4);
+  text-decoration: none;
+  display: inline-block;
+}
+
+#watchLaterBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(56, 249, 215, 0.6);
+}
+
+#watchLaterBtn:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 8px rgba(56, 249, 215, 0.5);
+}
+
+
+
+.quick-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.quick-links a {
+  text-decoration: none;
+  background: #6200ea;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.quick-links a:hover {
+  background: #3700b3;
+  transform: translateY(-3px);
+}
+
+/* Dark mode support */
+body.dark .quick-links a {
+  background: #bb86fc;
+  color: #121212;
+}
+
+body.dark .quick-links a:hover {
+  background: #985eff;
+}
+
+
